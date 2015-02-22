@@ -184,4 +184,40 @@ public class OmdbMoviePojo {
     public void setResponse(String response) {
         Response = response;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof OmdbMoviePojo) {
+            OmdbMoviePojo rhs = (OmdbMoviePojo) obj;
+            return Title.equals(rhs.getTitle()) && Year.equals(rhs.getYear()) && Rated.equals(rhs.getRated()) && Released.equals(rhs.getReleased()) && Runtime.equals(rhs.getRuntime()) && Genre.equals(rhs.getGenre()) && Director.equals(rhs.getDirector()) && Writer.equals(rhs.getWriter()) && Actors.equals(rhs.getActors()) && Plot.equals(rhs.getPlot()) && Language.equals(rhs.getLanguage()) && Country.equals(rhs.getCountry()) && Awards.equals(rhs.getAwards()) && Poster.equals(rhs.getPoster()) && Metascore.equals(rhs.getMetascore()) && imdbRating.equals(rhs.getImdbRating()) && imdbVotes.equals(rhs.getImdbVotes()) && imdbID.equals(rhs.getImdbID()) && Type.equals(rhs.getType()) && Response.equals(rhs.getResponse());
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        StringBuilder hashCodeBuilder = new StringBuilder();
+        hashCodeBuilder.append(Title);
+        hashCodeBuilder.append(Year);
+        hashCodeBuilder.append(Rated);
+        hashCodeBuilder.append(Released);
+        hashCodeBuilder.append(Runtime);
+        hashCodeBuilder.append(Genre);
+        hashCodeBuilder.append(Director);
+        hashCodeBuilder.append(Writer);
+        hashCodeBuilder.append(Actors);
+        hashCodeBuilder.append(Plot);
+        hashCodeBuilder.append(Language);
+        hashCodeBuilder.append(Country);
+        hashCodeBuilder.append(Awards);
+        hashCodeBuilder.append(Poster);
+        hashCodeBuilder.append(Metascore);
+        hashCodeBuilder.append(imdbRating);
+        hashCodeBuilder.append(imdbVotes);
+        hashCodeBuilder.append(imdbID);
+        hashCodeBuilder.append(Type);
+        hashCodeBuilder.append(Response);
+        return hashCodeBuilder.toString().hashCode();
+    }
 }
