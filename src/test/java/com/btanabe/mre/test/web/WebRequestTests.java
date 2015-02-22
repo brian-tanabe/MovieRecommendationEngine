@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static com.btanabe.mre.test.fixtures.OmdbMovieFixtures.edgeOfTomorrowFullPlotJsonFixture;
+import static com.btanabe.mre.test.fixtures.OmdbResponseFixtures.edgeOfTomorrowFullPlotJsonFixture;
 import static com.btanabe.mre.web.WebConstants.getOmdbUrlFromImbdId;
 import static junit.framework.TestCase.fail;
 import static org.junit.Assert.assertEquals;
