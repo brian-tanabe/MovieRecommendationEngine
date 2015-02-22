@@ -86,7 +86,7 @@ public class OmdbMovie {
         this.director = director;
     }
 
-    public List<String> getWriter() {
+    public List<String> getWriters() {
         return writer;
     }
 
