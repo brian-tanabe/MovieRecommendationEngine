@@ -186,38 +186,58 @@ public class OmdbMoviePojo {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof OmdbMoviePojo) {
-            OmdbMoviePojo rhs = (OmdbMoviePojo) obj;
-            return Title.equals(rhs.getTitle()) && Year.equals(rhs.getYear()) && Rated.equals(rhs.getRated()) && Released.equals(rhs.getReleased()) && Runtime.equals(rhs.getRuntime()) && Genre.equals(rhs.getGenre()) && Director.equals(rhs.getDirector()) && Writer.equals(rhs.getWriter()) && Actors.equals(rhs.getActors()) && Plot.equals(rhs.getPlot()) && Language.equals(rhs.getLanguage()) && Country.equals(rhs.getCountry()) && Awards.equals(rhs.getAwards()) && Poster.equals(rhs.getPoster()) && Metascore.equals(rhs.getMetascore()) && imdbRating.equals(rhs.getImdbRating()) && imdbVotes.equals(rhs.getImdbVotes()) && imdbID.equals(rhs.getImdbID()) && Type.equals(rhs.getType()) && Response.equals(rhs.getResponse());
-        } else {
-            return false;
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OmdbMoviePojo)) return false;
+
+        OmdbMoviePojo that = (OmdbMoviePojo) o;
+
+        if (!Actors.equals(that.Actors)) return false;
+        if (!Awards.equals(that.Awards)) return false;
+        if (!Country.equals(that.Country)) return false;
+        if (!Director.equals(that.Director)) return false;
+        if (!Genre.equals(that.Genre)) return false;
+        if (!Language.equals(that.Language)) return false;
+        if (!Metascore.equals(that.Metascore)) return false;
+        if (!Plot.equals(that.Plot)) return false;
+        if (!Poster.equals(that.Poster)) return false;
+        if (!Rated.equals(that.Rated)) return false;
+        if (!Released.equals(that.Released)) return false;
+        if (!Response.equals(that.Response)) return false;
+        if (!Runtime.equals(that.Runtime)) return false;
+        if (!Title.equals(that.Title)) return false;
+        if (!Type.equals(that.Type)) return false;
+        if (!Writer.equals(that.Writer)) return false;
+        if (!Year.equals(that.Year)) return false;
+        if (!imdbID.equals(that.imdbID)) return false;
+        if (!imdbRating.equals(that.imdbRating)) return false;
+        if (!imdbVotes.equals(that.imdbVotes)) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        StringBuilder hashCodeBuilder = new StringBuilder();
-        hashCodeBuilder.append(Title);
-        hashCodeBuilder.append(Year);
-        hashCodeBuilder.append(Rated);
-        hashCodeBuilder.append(Released);
-        hashCodeBuilder.append(Runtime);
-        hashCodeBuilder.append(Genre);
-        hashCodeBuilder.append(Director);
-        hashCodeBuilder.append(Writer);
-        hashCodeBuilder.append(Actors);
-        hashCodeBuilder.append(Plot);
-        hashCodeBuilder.append(Language);
-        hashCodeBuilder.append(Country);
-        hashCodeBuilder.append(Awards);
-        hashCodeBuilder.append(Poster);
-        hashCodeBuilder.append(Metascore);
-        hashCodeBuilder.append(imdbRating);
-        hashCodeBuilder.append(imdbVotes);
-        hashCodeBuilder.append(imdbID);
-        hashCodeBuilder.append(Type);
-        hashCodeBuilder.append(Response);
-        return hashCodeBuilder.toString().hashCode();
+        int result = Title.hashCode();
+        result = 31 * result + Year.hashCode();
+        result = 31 * result + Rated.hashCode();
+        result = 31 * result + Released.hashCode();
+        result = 31 * result + Runtime.hashCode();
+        result = 31 * result + Genre.hashCode();
+        result = 31 * result + Director.hashCode();
+        result = 31 * result + Writer.hashCode();
+        result = 31 * result + Actors.hashCode();
+        result = 31 * result + Plot.hashCode();
+        result = 31 * result + Language.hashCode();
+        result = 31 * result + Country.hashCode();
+        result = 31 * result + Awards.hashCode();
+        result = 31 * result + Poster.hashCode();
+        result = 31 * result + Metascore.hashCode();
+        result = 31 * result + imdbRating.hashCode();
+        result = 31 * result + imdbVotes.hashCode();
+        result = 31 * result + imdbID.hashCode();
+        result = 31 * result + Type.hashCode();
+        result = 31 * result + Response.hashCode();
+        return result;
     }
 }
