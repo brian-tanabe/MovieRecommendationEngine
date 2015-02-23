@@ -1,6 +1,7 @@
 package com.btanabe.mre.json;
 
 import com.btanabe.mre.helpers.DateHelpers;
+import com.btanabe.mre.helpers.MoneyHelper;
 import com.btanabe.mre.movie.MpaaRating;
 
 import java.text.ParseException;
@@ -36,6 +37,20 @@ public class OmdbMovieFactory {
         movie.setImdbVotes(Integer.parseInt(omdbMoviePojo.getImdbVotes().replaceAll("[^\\d]", "")));
         movie.setImdbID(omdbMoviePojo.getImdbID());
         movie.setMediaType(omdbMoviePojo.getType());
+        movie.setTomatoMeter(Integer.parseInt(omdbMoviePojo.getTomatoMeter()));
+        movie.setTomatoImage(omdbMoviePojo.getTomatoImage());
+        movie.setTomatoRating(Double.parseDouble(omdbMoviePojo.getTomatoRating()));
+        movie.setTomatoReviews(Integer.parseInt(omdbMoviePojo.getTomatoReviews()));
+        movie.setTomatoFresh(Integer.parseInt(omdbMoviePojo.getTomatoFresh()));
+        movie.setTomatoRotten(Integer.parseInt(omdbMoviePojo.getTomatoRotten()));
+        movie.setTomatoConsensus(omdbMoviePojo.getTomatoConsensus());
+        movie.setTomatoUserMeter(Integer.parseInt(omdbMoviePojo.getTomatoUserMeter()));
+        movie.setTomatoUserRating(Double.parseDouble(omdbMoviePojo.getTomatoUserRating()));
+        movie.setTomatoUserReviews(Integer.parseInt(omdbMoviePojo.getTomatoUserReviews().replaceAll("[^0-9]", "")));
+        movie.setDVD(DateHelpers.getCalendar("dd MMM yyyy", omdbMoviePojo.getDVD()));
+        movie.setBoxOffice(MoneyHelper.getRealDollarValue(omdbMoviePojo.getBoxOffice()));
+        movie.setProduction(omdbMoviePojo.getProduction());
+        movie.setWebsite(omdbMoviePojo.getWebsite());
         movie.setResponse(omdbMoviePojo.getResponse().toLowerCase().equals("true"));
 
         return movie;

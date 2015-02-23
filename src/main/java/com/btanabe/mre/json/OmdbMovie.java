@@ -28,6 +28,20 @@ public class OmdbMovie {
     private int imdbVotes;
     private String imdbID;
     private String mediaType;
+    private int tomatoMeter;
+    private String tomatoImage;
+    private double tomatoRating;
+    private int tomatoReviews;
+    private int tomatoFresh;
+    private int tomatoRotten;
+    private String tomatoConsensus;
+    private int tomatoUserMeter;
+    private double tomatoUserRating;
+    private int tomatoUserReviews;
+    private Calendar DVD;
+    private int BoxOffice;
+    private String Production;
+    private String website;
     private boolean response;
 
     public String getTitle() {
@@ -182,6 +196,122 @@ public class OmdbMovie {
         this.mediaType = mediaType;
     }
 
+    public List<String> getWriter() {
+        return writer;
+    }
+
+    public int getTomatoMeter() {
+        return tomatoMeter;
+    }
+
+    public void setTomatoMeter(int tomatoMeter) {
+        this.tomatoMeter = tomatoMeter;
+    }
+
+    public String getTomatoImage() {
+        return tomatoImage;
+    }
+
+    public void setTomatoImage(String tomatoImage) {
+        this.tomatoImage = tomatoImage;
+    }
+
+    public double getTomatoRating() {
+        return tomatoRating;
+    }
+
+    public void setTomatoRating(double tomatoRating) {
+        this.tomatoRating = tomatoRating;
+    }
+
+    public int getTomatoReviews() {
+        return tomatoReviews;
+    }
+
+    public void setTomatoReviews(int tomatoReviews) {
+        this.tomatoReviews = tomatoReviews;
+    }
+
+    public int getTomatoFresh() {
+        return tomatoFresh;
+    }
+
+    public void setTomatoFresh(int tomatoFresh) {
+        this.tomatoFresh = tomatoFresh;
+    }
+
+    public int getTomatoRotten() {
+        return tomatoRotten;
+    }
+
+    public void setTomatoRotten(int tomatoRotten) {
+        this.tomatoRotten = tomatoRotten;
+    }
+
+    public String getTomatoConsensus() {
+        return tomatoConsensus;
+    }
+
+    public void setTomatoConsensus(String tomatoConsensus) {
+        this.tomatoConsensus = tomatoConsensus;
+    }
+
+    public int getTomatoUserMeter() {
+        return tomatoUserMeter;
+    }
+
+    public void setTomatoUserMeter(int tomatoUserMeter) {
+        this.tomatoUserMeter = tomatoUserMeter;
+    }
+
+    public double getTomatoUserRating() {
+        return tomatoUserRating;
+    }
+
+    public void setTomatoUserRating(double tomatoUserRating) {
+        this.tomatoUserRating = tomatoUserRating;
+    }
+
+    public int getTomatoUserReviews() {
+        return tomatoUserReviews;
+    }
+
+    public void setTomatoUserReviews(int tomatoUserReviews) {
+        this.tomatoUserReviews = tomatoUserReviews;
+    }
+
+    public Calendar getDVD() {
+        return DVD;
+    }
+
+    public void setDVD(Calendar DVD) {
+        this.DVD = DVD;
+    }
+
+    public int getBoxOffice() {
+        return BoxOffice;
+    }
+
+    public void setBoxOffice(int boxOffice) {
+        BoxOffice = boxOffice;
+    }
+
+    public String getProduction() {
+        return Production;
+    }
+
+    public void setProduction(String production) {
+        Production = production;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
     public boolean isResponse() {
         return response;
     }
@@ -197,12 +327,23 @@ public class OmdbMovie {
 
         OmdbMovie omdbMovie = (OmdbMovie) o;
 
+        if (BoxOffice != omdbMovie.BoxOffice) return false;
         if (Double.compare(omdbMovie.imdbRating, imdbRating) != 0) return false;
         if (imdbVotes != omdbMovie.imdbVotes) return false;
         if (metascore != omdbMovie.metascore) return false;
         if (response != omdbMovie.response) return false;
         if (runtimeInMinutes != omdbMovie.runtimeInMinutes) return false;
+        if (tomatoFresh != omdbMovie.tomatoFresh) return false;
+        if (tomatoMeter != omdbMovie.tomatoMeter) return false;
+        if (Double.compare(omdbMovie.tomatoRating, tomatoRating) != 0) return false;
+        if (tomatoReviews != omdbMovie.tomatoReviews) return false;
+        if (tomatoRotten != omdbMovie.tomatoRotten) return false;
+        if (tomatoUserMeter != omdbMovie.tomatoUserMeter) return false;
+        if (Double.compare(omdbMovie.tomatoUserRating, tomatoUserRating) != 0) return false;
+        if (tomatoUserReviews != omdbMovie.tomatoUserReviews) return false;
         if (year != omdbMovie.year) return false;
+        if (!DVD.equals(omdbMovie.DVD)) return false;
+        if (!Production.equals(omdbMovie.Production)) return false;
         if (!actors.equals(omdbMovie.actors)) return false;
         if (!awardNominationsAndWins.equals(omdbMovie.awardNominationsAndWins)) return false;
         if (!counties.equals(omdbMovie.counties)) return false;
@@ -216,6 +357,9 @@ public class OmdbMovie {
         if (rating != omdbMovie.rating) return false;
         if (!released.equals(omdbMovie.released)) return false;
         if (!title.equals(omdbMovie.title)) return false;
+        if (!tomatoConsensus.equals(omdbMovie.tomatoConsensus)) return false;
+        if (!tomatoImage.equals(omdbMovie.tomatoImage)) return false;
+        if (!website.equals(omdbMovie.website)) return false;
         if (!writer.equals(omdbMovie.writer)) return false;
 
         return true;
@@ -245,6 +389,22 @@ public class OmdbMovie {
         result = 31 * result + imdbVotes;
         result = 31 * result + imdbID.hashCode();
         result = 31 * result + mediaType.hashCode();
+        result = 31 * result + tomatoMeter;
+        result = 31 * result + tomatoImage.hashCode();
+        temp = Double.doubleToLongBits(tomatoRating);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + tomatoReviews;
+        result = 31 * result + tomatoFresh;
+        result = 31 * result + tomatoRotten;
+        result = 31 * result + tomatoConsensus.hashCode();
+        result = 31 * result + tomatoUserMeter;
+        temp = Double.doubleToLongBits(tomatoUserRating);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + tomatoUserReviews;
+        result = 31 * result + DVD.hashCode();
+        result = 31 * result + BoxOffice;
+        result = 31 * result + Production.hashCode();
+        result = 31 * result + website.hashCode();
         result = 31 * result + (response ? 1 : 0);
         return result;
     }

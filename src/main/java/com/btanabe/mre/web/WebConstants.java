@@ -8,6 +8,6 @@ public class WebConstants {
 
     // OMDb:
     public static String getOmdbUrlFromImbdId(String imbdMovieId) {
-        return String.format("http://www.omdbapi.com/?i=%s&plot=full&r=json", imbdMovieId);
+        return String.format("http://www.omdbapi.com/?i=%s&plot=full&r=json&tomatoes=true", imbdMovieId);
     }
 }
